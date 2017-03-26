@@ -1,0 +1,97 @@
+main
+{
+    background-color: white;
+    padding-top: 40px;
+}
+
+
+.center
+{
+    margin: auto;
+    width: 70%;
+    background-color: #c3e5f4;
+    padding-top: 15px;
+    padding-bottom: 175px;
+    padding-left:20px;
+    padding-right:20px;
+    border-style: solid;
+    border-color: black;
+    border-width: 8px;
+    border-radius: 20px;
+}
+.logo
+{
+    margin: auto;
+    width:25%;
+    padding: 5px;
+    text-align: center;
+    background-color: black;
+    color: white;
+    font-size: 50px;
+}
+.inner
+{
+    padding: 35px;
+    margin-top: 50px;
+    margin-left: auto ;
+    margin-right: auto ;
+    width:75%;
+    background-color: gray;
+}
+#image
+{
+    width: 225px;
+    height: 300px;
+    float: left;
+    padding-bottom: 50px;
+    padding-right: 55px;
+}
+#description
+{
+    float: right;
+    width:55%;
+    height: 300px;
+}
+.pair
+{
+    width: 100%;
+    display: inline-block;
+}
+
+#foot 
+{
+    padding-left: 100px;
+    padding-bottom: 15px;
+    position: fixed;
+    bottom: 0;
+    width: 75px;
+    color: white;
+    text-decoration: none;
+}
+
+#buttonsync
+{
+    width:200px;
+    height: 50px;
+}
+
+.menu
+{
+    display: inline-block;
+    width: 100%;
+    font-size: 30px;
+
+}
+.home
+{
+    float: left;
+}
+.cart
+{
+    float: right;
+}
+
+.inline
+{
+    display: inline-block;
+}
