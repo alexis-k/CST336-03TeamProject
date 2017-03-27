@@ -7,18 +7,18 @@ session_start();
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Confirm - Movie Center</title>
-        <link rel="stylesheet" href="../public_html/css/styles.css" type="text/css">
+        <name>Confirm - name Center</name>
+        <link rel="stylesheet" href="../css/styles.css" type="text/css">
     </head>
     
 <main>
     <div class="center">
         <header class="logo">
-            Movie Center
+            name Center
         </header>
         <span class="menu">
             <span class="home">
-                <a href='../public_html/index.php'>Home</a>  
+                <a href='../index.php'>Home</a>  
             </span>
         </span>
         <body><br/>
@@ -26,11 +26,11 @@ session_start();
                 <?php
                     if(empty($_POST['first']) || empty($_POST['last']) || empty($_POST['email']) || empty($_POST['credit']))
                     {
-                        echo "<h1>Missing Information!</h1><br/>Please try <a href='checkout.php'>again</a>";
+                        echo "<h1>Missing Information....</h1><br/>Please try <a href='checkout.php'>again</a>";
                     }
                     else 
                     {
-                        echo "<h1>Thank you for your business!</h1><br/>Come back soon :)";
+                        echo "<h1>Enjoy your movie !</h1>";
                         $_SESSION = array();
                         session_destroy();
                     }

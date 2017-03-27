@@ -4,41 +4,41 @@ session_start();
 require_once('db.php');
 
 $conn = getDatabaseConnection();
-$filmID = $_POST["add"];
+$movieID = $_POST["add"];
 $inCart = 0;
 
 if($_SESSION["cart"] == NULL)
 {
-    $_SESSION["cart"] = array($filmID);
+    $_SESSION["cart"] = array($movieID);
 }
-else if(in_array($filmID,$_SESSION["cart"]))
+else if(in_array($movieID,$_SESSION["cart"]))
 {
     $inCart = 1;
 }
 else
 {
-    array_push($_SESSION["cart"], $filmID);
+    array_push($_SESSION["cart"], $movieID);
 }
 
 function displayAdd()
 {
-    global $conn, $filmID, $inCart;
+    global $conn, $movieID, $inCart;
 
     // Query results  
-    $sql = "SELECT * FROM `film` WHERE filmID=" . $filmID; // select all columns
+    $sql = "SELECT * FROM `movie` WHERE movieID=" . $movieID; // select all columns
     $stmt = $conn -> prepare ($sql);
     $stmt -> execute();
     
     
     $row = $stmt->fetch();
-    $title = $row["title"];
-    $image = "../public_html/pic/". $filmID . ".jpeg";
+    $name = $row["name"];
+    $image = "../pic/". $movieID . ".jpeg";
     
 
     if($inCart == 0)
     {
         echo"
-        <ul style='font-size:20px'><li>Succesfully added <strong>" . $title . "</strong> to cart!</li></ul>
+        <ul style='font-size:20px'><li>Succesfully added <strong>" . $name . "</strong> to cart!</li></ul>
         <div>
             <div>
                 <img src='" . $image . "' width='112.5px' height='150px'>
@@ -49,8 +49,8 @@ function displayAdd()
     else
     {
         echo"
-        <ul style='font-size:20px'><li><strong>" . $title . "</strong> is already in cart!</li></ul>
-        <ul style='list-style-type: none;'>Sorry about that :( we have plenty more where that came from!</ul><br/>";
+        <ul style='font-size:20px'><li><strong>" . $name . "</strong> is already in cart!</li></ul>
+        <ul style='list-style-type: none;'>Please chose another movie or proceed checkout.</ul><br/>";
     }
 }
 ?>
@@ -58,8 +58,8 @@ function displayAdd()
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Add to cart - Movie Center</title>
-        <link rel="stylesheet" href="../public_html/css/styles.css" type="text/css">
+        <name>Add to cart - Movie Center</name>
+        <link rel="stylesheet" href="../css/styles.css" type="text/css">
     </head>
 <main>
     <div class="center">
@@ -68,7 +68,7 @@ function displayAdd()
         </header>
         <span class="menu">
             <span class="home">
-                <a href='../public_html/index.php'>Home</a>  
+                <a href='../index.php'>Home</a>  
             </span>
             <span class="cart">
                 <?= "<a href='cart.php'>cart(" . count($_SESSION["cart"]) .")</a>" ?>
@@ -79,7 +79,7 @@ function displayAdd()
                 <?php
                     displayAdd();
                 ?>
-                <form method="post" action="../public_html/index.php">
+                <form method="post" action="../index.php">
                     <button style="width:100px;" name='home'>Keep shopping</button>
                 </form>
                 <form method="post" action="checkout.php">

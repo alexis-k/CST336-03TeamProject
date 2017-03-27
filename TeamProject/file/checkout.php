@@ -6,18 +6,18 @@ session_start();
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Check out - Movie Center</title>
-        <link rel="stylesheet" href="../public_html/css/styles.css" type="text/css">
+        <name>Check out - name Center</name>
+        <link rel="stylesheet" href="../css/styles.css" type="text/css">
     </head>
     
 <main>
     <div class="center">
         <header class="logo">
-            Movie Center
+            name Center
         </header>
         <span class="menu">
             <span class="home">
-                <a href='../public_html/index.php'>Home</a>  
+                <a href='../index.php'>Home</a>  
             </span>
         </span>
         <body><br/>
@@ -26,16 +26,10 @@ session_start();
                 <form action="confirm.php" method="post">
                     <span>
                         <span class="form">
-                            First Name:
+                            Name:
                         </span><br/>
                         <span >
                             <input class="text_field" type="text" name="first"/><br/><br/>
-                        </span><br/>
-                        <span class="form">
-                            Last Name:
-                        </span></br>
-                        <span>
-                            <input class="text_field" type="text" name="last"/><br/><br/>
                         </span><br/>
                         <span class="form">
                             Email:
@@ -52,7 +46,7 @@ session_start();
                         <button style='width:100px'; name='finish' value='finish'>finish</button>
                      </span>
                 </form>
-                <form action='../public_html/index.php' method='post'>
+                <form action='../index.php' method='post'>
                     <button style='width:100px'; name='cancel' value='cancel'>cancel</button>
                 </form>
             </div>

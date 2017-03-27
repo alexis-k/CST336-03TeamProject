@@ -1,35 +1,25 @@
 <?php
-// CST336 Team Project
-// Date: 11/9/2016
-// Team: Dustin D'Avignon, Kyle Butler-Fish, and Spencer Ortega 
-// Git Repo: https://github.com/SpencerOrtegaTW/catalog-checkout.git
-// Trello: https://trello.com/b/LjvJ40KW/cst336-team-project
-
-
-// Start the session
 session_start();
-require_once('../protected/db.php');
+require_once('file/db.php');
 
 $conn = getDatabaseConnection();
 
-function displayProducts() 
+function applyFilter() 
 {
     global $conn;
-    $sql = "SELECT * FROM film
-            INNER JOIN film_genre 
-            ON film.filmID=film_genre.filmID 
+    $sql = "SELECT * FROM movie
+            INNER JOIN movie_information
+            ON movie.movieID=movie_information.movieID 
             INNER JOIN genre 
-            ON film_genre.genreID=genre.genreID"; // select all columns
+            ON 	movie_information.genreID=genre.genreID"; // select all columns
     
     $filterBy = "";
     $sort = "";
-    
-    // Set filter and sort
 
-    if(!isset($_POST['button']) || $_POST['filter'] == "title" || $_POST['filter'] == "null") // entered title
+    if(!isset($_POST['button']) || $_POST['filter'] == "name" || $_POST['filter'] == "null") // entered name
     {
-        echo "<strong>Filter</strong>: Title";
-        $filterBy .= 'title';
+        echo "<strong>Filter</strong>: name";
+        $filterBy .= 'name';
     }
     else if($_POST['filter'] == "price") // entered price
     {
@@ -39,11 +29,21 @@ function displayProducts()
     else if($_POST['filter'] == "genre") // entered genre
     {
         echo "<strong>Filter</strong>: Genre";
-        $filterBy .= 'genre_name';
+        $filterBy .= 'genre';
+    }
+    else if($_POST['filter'] == "rating") // entered genre
+    {
+        echo "<strong>Filter</strong>: Rating";
+        $filterBy .= 'rating';
+    }
+    else if($_POST['filter'] == "director") // entered genre
+    {
+        echo "<strong>Filter</strong>: Director";
+        $filterBy .= 'director';
     }
     echo "<br/>";
     // Checks sort  
-    if(!isset($_POST['button']) || $_POST['sort'] == "asc" || $_POST['sort'] == "null") // entered title
+    if(!isset($_POST['button']) || $_POST['sort'] == "asc" || $_POST['sort'] == "null") // entered name
     {
         echo "<strong>Sort</strong>: Low to high";
         $sort = "ASC";
@@ -63,11 +63,12 @@ function displayProducts()
     // fetch results
     while($row = $stmt->fetch())  // while there is data left in table
     {
-        $filmID = $row["filmID"];
-        $image = "pic/". $filmID . ".jpeg";
-        $genre = $row["genre_name"];
-        $title = $row["title"];
-        $description = $row["short_desc"];
+        $movieID = $row["movieID"];
+        $image = "pic/". $movieID . ".jpeg";
+        $genre = $row["genre"];
+        $name = $row["name"];
+        $rating = $row["rating"];
+        $director = $row['director'];
         $price = $row["price"];
             
         echo "
@@ -76,15 +77,17 @@ function displayProducts()
                 <img src='" . $image . "' width='225px' height='300px'>
             </span>
             <span id='description'>
-                <h2><strong>" . $title . "</strong></h2>" . $description . "
+                <h2><strong>" . $name . "</strong></h2>"."
                 <br/><br/>
+                <strong>Rating:</strong> " . $rating . "/10 <br/>
                 <strong>Genre:</strong> " . $genre ."<br/>
+                <strong>Director:</strong> " . $director ."<br/>
                 <strong>Price:</strong> $" . $price ."<br/><br/>
-                <form action='../protected/info.php' method='post'>
-                    <button style='width:100px;' name='info' value='" . $filmID . "'>details</button>
+                <form action='file/info.php' method='post'>
+                    <button style='width:100px;' name='info' value='" . $movieID . "'>details</button>
                 </form>
-                <form action='../protected/addcart.php' method='post'>
-                    <button style='width:100px'; name='add' value='" . $filmID . "'>add to cart</button>
+                <form action='file/addcart.php' method='post'>
+                    <button style='width:100px'; name='add' value='" . $movieID . "'>add to cart</button>
                 </form>
             </span>
         </span><br/><br/>
@@ -96,7 +99,7 @@ function displayProducts()
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Home - Movie Center</title>
+        <name>Home - Movie Center</name>
         <link rel="stylesheet" href="css/styles.css" type="text/css">
 
     </head>
@@ -110,7 +113,7 @@ function displayProducts()
                     <a href='index.php'>Home</a>  
                 </span>
                 <span class="cart">
-                    <?= "<a href='../protected/cart.php'>cart(" . count($_SESSION["cart"]) .")</a>" ?>
+                    <?= "<a href='file/cart.php'>cart(" . count($_SESSION["cart"]) .")</a>" ?>
                 </span>
             </span>
             <body><br/>
@@ -120,9 +123,11 @@ function displayProducts()
                         <form method="post" action="index.php">
                             <select name="filter">
                                 <option value="null">--Filter--</option>
-                                <option value="title">Title</option>
+                                <option value="name">name</option>
                                 <option value="price">Price</option>
                                 <option value="genre">Genre</option>
+                                <option value="rating">Rating</option>
+                                <option value="director">Director</option>
                             </select>
                             <select name="sort">
                                 <option value="null">--Sort--</option>
@@ -133,7 +138,7 @@ function displayProducts()
                         </form> <br/><br/>
                     </div>
                     <?php
-                    displayProducts();
+                    applyFilter();
                     ?>
              
                 </div>

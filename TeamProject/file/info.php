@@ -4,50 +4,51 @@ session_start();
 
 require_once('db.php');
 $conn = getDatabaseConnection();
-$title = "";
+$name = "";
 
 function displayInfo()
 {
     global $conn;
-    $sql = "SELECT * FROM `film` 
-            INNER JOIN film_genre 
-            ON film.filmID=film_genre.filmID 
+    $sql = "SELECT * FROM `movie` 
+            INNER JOIN movie_information 
+            ON movie.movieID=movie_information.movieID 
             INNER JOIN genre 
-            ON film_genre.genreID=genre.genreID";
+            ON movie_information.genreID=genre.genreID";
             
     $stmt = $conn -> prepare ($sql);
     $stmt -> execute();
     $row = $stmt->fetch();
-    $filmID = $row["filmID"];
-    while($filmID != $_POST["info"])
+    $movieID = $row["movieID"];
+    while($movieID != $_POST["info"])
     {
         $row = $stmt->fetch();
-        $filmID = $row["filmID"];
+        $movieID = $row["movieID"];
     }
     
-    global $title;
-    $title = $row["title"];
-    
+    global $name;
+    $name = $row["name"];
     $description = $row["description"];
-    $genre = $row["genre_name"];
+    $genre = $row["genre"];
     $price = $row["price"];
-    $image = "../public_html/pic/". $filmID . ".jpeg";
+    $image = "../pic/". $movieID . ".jpeg";
+    $trailer = $row["trailer"];
     echo "
     <span class='pair'>
         <span id='image'>
             <img src='{$image}' width='225px' height='300px'>
         </span>
         <span id='description'>
-            <h2> {$title}</h2>
+            <h2> {$name}</h2>
             <strong>Genre:</strong> {$genre}<br/>
-            <strong>Price:</strong> \${$price}<br/><br/>
-
-            {$description}<br/><br/>
-            <form method='post' action='../public_html/index.php'>
+            <strong>Price:</strong> \${$price}<br/>
+            <br/>
+            {$description} {$trailer}<br/>
+            <br/>
+            <form method='post' action='../index.php'>
                 <button style='width:100px;' name='home'>Keep shopping</button>
             </form>
             <form action='addcart.php' method='post'>
-                <button style='width:100px'; name='add' value='{$filmID}'>add to cart</button>
+                <button style='width:100px'; name='add' value='{$movieID}'>add to cart</button>
             </form>
         </span>
     </span>
@@ -60,7 +61,7 @@ function displayInfo()
 <html>
     <head>
         <title>Details - Movie Center</title>
-        <link rel="stylesheet" href="../public_html/css/styles.css" type="text/css">
+        <link rel="stylesheet" href="../css/styles.css" type="text/css">
     </head>
     
 <main>
@@ -70,7 +71,7 @@ function displayInfo()
         </header>
         <span class="menu">
             <span class="home">
-                <a href='../public_html/index.php'>Home</a>  
+                <a href='../index.php'>Home</a>  
             </span>
             <span class="cart">
                 <?= "<a href='cart.php'>cart(" . count($_SESSION["cart"]) .")</a>" ?>

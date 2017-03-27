@@ -1,0 +1,54 @@
+[27-Mar-2017 08:09:24 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'teamProject.film' doesn't exist' in /home/ubuntu/workspace/Project/CST336-03TeamProject/CST336-03TeamProject/TeamProject/file/addcart.php:30
+Stack trace:
+#0 /home/ubuntu/workspace/Project/CST336-03TeamProject/CST336-03TeamProject/TeamProject/file/addcart.php(30): PDOStatement->execute()
+#1 /home/ubuntu/workspace/Project/CST336-03TeamProject/CST336-03TeamProject/TeamProject/file/addcart.php(80): displayAdd()
+#2 {main}
+  thrown in /home/ubuntu/workspace/Project/CST336-03TeamProject/CST336-03TeamProject/TeamProject/file/addcart.php on line 30
+[27-Mar-2017 08:09:34 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'teamProject.film' doesn't exist' in /home/ubuntu/workspace/Project/CST336-03TeamProject/CST336-03TeamProject/TeamProject/file/cart.php:31
+Stack trace:
+#0 /home/ubuntu/workspace/Project/CST336-03TeamProject/CST336-03TeamProject/TeamProject/file/cart.php(31): PDOStatement->execute()
+#1 /home/ubuntu/workspace/Project/CST336-03TeamProject/CST336-03TeamProject/TeamProject/file/cart.php(92): displayCart()
+#2 {main}
+  thrown in /home/ubuntu/workspace/Project/CST336-03TeamProject/CST336-03TeamProject/TeamProject/file/cart.php on line 31
+[27-Mar-2017 08:09:38 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'teamProject.film' doesn't exist' in /home/ubuntu/workspace/Project/CST336-03TeamProject/CST336-03TeamProject/TeamProject/file/info.php:19
+Stack trace:
+#0 /home/ubuntu/workspace/Project/CST336-03TeamProject/CST336-03TeamProject/TeamProject/file/info.php(19): PDOStatement->execute()
+#1 /home/ubuntu/workspace/Project/CST336-03TeamProject/CST336-03TeamProject/TeamProject/file/info.php(82): displayInfo()
+#2 {main}
+  thrown in /home/ubuntu/workspace/Project/CST336-03TeamProject/CST336-03TeamProject/TeamProject/file/info.php on line 19
+[27-Mar-2017 08:12:08 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'teamProject.film' doesn't exist' in /home/ubuntu/workspace/Project/CST336-03TeamProject/CST336-03TeamProject/TeamProject/file/info.php:19
+Stack trace:
+#0 /home/ubuntu/workspace/Project/CST336-03TeamProject/CST336-03TeamProject/TeamProject/file/info.php(19): PDOStatement->execute()
+#1 /home/ubuntu/workspace/Project/CST336-03TeamProject/CST336-03TeamProject/TeamProject/file/info.php(82): displayInfo()
+#2 {main}
+  thrown in /home/ubuntu/workspace/Project/CST336-03TeamProject/CST336-03TeamProject/TeamProject/file/info.php on line 19
+[27-Mar-2017 08:12:51 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'teamProject.film' doesn't exist' in /home/ubuntu/workspace/Project/CST336-03TeamProject/CST336-03TeamProject/TeamProject/file/cart.php:31
+Stack trace:
+#0 /home/ubuntu/workspace/Project/CST336-03TeamProject/CST336-03TeamProject/TeamProject/file/cart.php(31): PDOStatement->execute()
+#1 /home/ubuntu/workspace/Project/CST336-03TeamProject/CST336-03TeamProject/TeamProject/file/cart.php(92): displayCart()
+#2 {main}
+  thrown in /home/ubuntu/workspace/Project/CST336-03TeamProject/CST336-03TeamProject/TeamProject/file/cart.php on line 31
+[27-Mar-2017 08:13:01 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'teamProject.film' doesn't exist' in /home/ubuntu/workspace/Project/CST336-03TeamProject/CST336-03TeamProject/TeamProject/file/addcart.php:30
+Stack trace:
+#0 /home/ubuntu/workspace/Project/CST336-03TeamProject/CST336-03TeamProject/TeamProject/file/addcart.php(30): PDOStatement->execute()
+#1 /home/ubuntu/workspace/Project/CST336-03TeamProject/CST336-03TeamProject/TeamProject/file/addcart.php(80): displayAdd()
+#2 {main}
+  thrown in /home/ubuntu/workspace/Project/CST336-03TeamProject/CST336-03TeamProject/TeamProject/file/addcart.php on line 30
+[27-Mar-2017 08:13:43 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'teamProject.film' doesn't exist' in /home/ubuntu/workspace/Project/CST336-03TeamProject/CST336-03TeamProject/TeamProject/file/info.php:19
+Stack trace:
+#0 /home/ubuntu/workspace/Project/CST336-03TeamProject/CST336-03TeamProject/TeamProject/file/info.php(19): PDOStatement->execute()
+#1 /home/ubuntu/workspace/Project/CST336-03TeamProject/CST336-03TeamProject/TeamProject/file/info.php(82): displayInfo()
+#2 {main}
+  thrown in /home/ubuntu/workspace/Project/CST336-03TeamProject/CST336-03TeamProject/TeamProject/file/info.php on line 19
+[27-Mar-2017 08:14:51 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'teamProject.movie_genre' doesn't exist' in /home/ubuntu/workspace/Project/CST336-03TeamProject/CST336-03TeamProject/TeamProject/file/info.php:19
+Stack trace:
+#0 /home/ubuntu/workspace/Project/CST336-03TeamProject/CST336-03TeamProject/TeamProject/file/info.php(19): PDOStatement->execute()
+#1 /home/ubuntu/workspace/Project/CST336-03TeamProject/CST336-03TeamProject/TeamProject/file/info.php(82): displayInfo()
+#2 {main}
+  thrown in /home/ubuntu/workspace/Project/CST336-03TeamProject/CST336-03TeamProject/TeamProject/file/info.php on line 19
+[27-Mar-2017 08:14:55 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'teamProject.movie_genre' doesn't exist' in /home/ubuntu/workspace/Project/CST336-03TeamProject/CST336-03TeamProject/TeamProject/file/info.php:19
+Stack trace:
+#0 /home/ubuntu/workspace/Project/CST336-03TeamProject/CST336-03TeamProject/TeamProject/file/info.php(19): PDOStatement->execute()
+#1 /home/ubuntu/workspace/Project/CST336-03TeamProject/CST336-03TeamProject/TeamProject/file/info.php(82): displayInfo()
+#2 {main}
+  thrown in /home/ubuntu/workspace/Project/CST336-03TeamProject/CST336-03TeamProject/TeamProject/file/info.php on line 19

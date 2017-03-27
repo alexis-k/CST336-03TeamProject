@@ -9,7 +9,7 @@ if($_POST["clear"] == "1")
     $_SESSION["cart"] = array();
 }
 
-function displayCart()
+function display()
 {
     global $conn;
     if($_SESSION["cart"] == NULL)
@@ -18,12 +18,12 @@ function displayCart()
     }
     else 
     {
-        $sql = "SELECT * FROM `film` WHERE ";
+        $sql = "SELECT * FROM `movie` WHERE ";
         
         $arr = $_SESSION["cart"];
         foreach($arr as &$id)
         {
-            $sql = $sql . "filmID=" . $id . " OR ";
+            $sql = $sql . "movieID=" . $id . " OR ";
         }
         $sql = substr($sql,0,-3); // delete last " OR "
 
@@ -34,10 +34,10 @@ function displayCart()
         $totalprice=0;
         while($row = $stmt->fetch())  // while there is data left in table
         {
-            $filmID = $row["filmID"];
-            $image = "../public_html/pic/". $filmID . ".jpeg";
+            $movieID = $row["movieID"];
+            $image = "../pic/". $movieID . ".jpeg";
             $price = $row["price"];
-            $title = $row["title"];
+            $name = $row["name"];
             $totalprice += $price;
             
             echo "
@@ -45,7 +45,7 @@ function displayCart()
                 <img src='" . $image . "' width='112.5px' height='150px'>
             </div>
             <div>
-                <strong>Title: </strong>" . $title . "<br/>
+                <strong>name: </strong>" . $name . "<br/>
                 <strong>Price: </strong>$" . $price . "<br/>
             </div><br/>
             ";
@@ -68,8 +68,8 @@ function displayCart()
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Cart - Movie Center</title>
-        <link rel="stylesheet" href="../public_html/css/styles.css" type="text/css">
+        <name>Cart - Movie Center</name>
+        <link rel="stylesheet" href="../css/styles.css" type="text/css">
     </head>
     
 <main>
@@ -79,7 +79,7 @@ function displayCart()
         </header>
         <span class="menu">
             <span class="home">
-                <a href='../public_html/index.php'>Home</a>  
+                <a href='../index.php'>Home</a>  
             </span>
             <span class="cart">
                 <?= "<a href='cart.php'>cart(" . count($_SESSION["cart"]) .")</a>" ?>
@@ -89,7 +89,7 @@ function displayCart()
             <div class="inner">
                 <h2>Your cart contains:</h2>
                 <?php
-                    displayCart();
+                    display();
                 ?>
             </div>
         </body>
