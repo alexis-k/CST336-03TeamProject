@@ -18,39 +18,39 @@ function applyFilter()
 
     if(!isset($_POST['button']) || $_POST['filter'] == "name" || $_POST['filter'] == "null") // entered name
     {
-        echo "<strong>Filter</strong>: name";
+        echo "<strong>Filtered by</strong>: name";
         $filterBy .= 'name';
     }
     else if($_POST['filter'] == "price") // entered price
     {
-        echo "<strong>Filter</strong>: Price";
+        echo "<strong>Filtered by</strong>: Price";
         $filterBy .= 'price';
     }
     else if($_POST['filter'] == "genre") // entered genre
     {
-        echo "<strong>Filter</strong>: Genre";
+        echo "<strong>Filtered by</strong>: Genre";
         $filterBy .= 'genre';
     }
     else if($_POST['filter'] == "rating") // entered genre
     {
-        echo "<strong>Filter</strong>: Rating";
+        echo "<strong>Filtered by</strong>: Rating";
         $filterBy .= 'rating';
     }
     else if($_POST['filter'] == "director") // entered genre
     {
-        echo "<strong>Filter</strong>: Director";
+        echo "<strong>Filtered by</strong>: Director";
         $filterBy .= 'director';
     }
     echo "<br/>";
     // Checks sort  
     if(!isset($_POST['button']) || $_POST['sort'] == "asc" || $_POST['sort'] == "null") // entered name
     {
-        echo "<strong>Sort</strong>: Low to high";
+        echo "<strong>Sorted by</strong>: Low to high";
         $sort = "ASC";
     }
     else if($_POST['sort'] == "desc") // entered genre
     {
-        echo "<strong>Sort</strong>: High to low";
+        echo "<strong>Sorted by</strong>: High to low";
         $sort = "DESC";
     }
     echo "<br/>";
@@ -72,11 +72,11 @@ function applyFilter()
         $price = $row["price"];
             
         echo "
-        <span class='pair'>
+        <span class='pair movie'>
             <span id='image'>
                 <img src='" . $image . "' width='225px' height='300px'>
             </span>
-            <span id='description'>
+            <span id='description' class='movieDetails'>
                 <h2><strong>" . $name . "</strong></h2>"."
                 <br/><br/>
                 <strong>Rating:</strong> " . $rating . "/10 <br/>
@@ -99,16 +99,21 @@ function applyFilter()
 <!DOCTYPE html>
 <html>
     <head>
-        <name>Home - Movie Center</name>
+        
         <link rel="stylesheet" href="css/styles.css" type="text/css">
 
     </head>
     <main>
-        <div class="center">
+        <div class="back">
             <header class="logo">
-                Movie Center
+                Movie Shopping
             </header>
-            <span class="menu">
+            
+            
+            
+            <body class="lolol"><br/>
+                <div class="inner">
+                    <span class="menu">
                 <span class="home">
                     <a href='index.php'>Home</a>  
                 </span>
@@ -116,13 +121,12 @@ function applyFilter()
                     <?= "<a href='file/cart.php'>cart(" . count($_SESSION["cart"]) .")</a>" ?>
                 </span>
             </span>
-            <body><br/>
-                <div class="inner">
+            <br/><br/>
                     <!--filter and sort forms-->
                     <div style="float: right; padding-bottom: 15px;">
                         <form method="post" action="index.php">
                             <select name="filter">
-                                <option value="null">--Filter--</option>
+                                <option value="null">Select Filter</option>
                                 <option value="name">name</option>
                                 <option value="price">Price</option>
                                 <option value="genre">Genre</option>
@@ -130,7 +134,7 @@ function applyFilter()
                                 <option value="director">Director</option>
                             </select>
                             <select name="sort">
-                                <option value="null">--Sort--</option>
+                                <option value="null">Select Sorting</option>
                                 <option value="asc">Low to high</option>
                                 <option value="desc">High to low</option>
                             </select>
@@ -146,9 +150,6 @@ function applyFilter()
             <footer>
                 
             </footer>
-        </div>
-        <div id="foot">
-            <a href="#">Go to top</a>
         </div>
     </main>
 

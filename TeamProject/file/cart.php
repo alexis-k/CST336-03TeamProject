@@ -68,7 +68,6 @@ function display()
 <!DOCTYPE html>
 <html>
     <head>
-        <name>Cart - Movie Center</name>
         <link rel="stylesheet" href="../css/styles.css" type="text/css">
     </head>
     
@@ -98,9 +97,7 @@ function display()
         </footer>
     </div>
     
-    <div id="foot">
-        <a href="#">Go to top</a>
-    </div>
+    
     
 </main>
 

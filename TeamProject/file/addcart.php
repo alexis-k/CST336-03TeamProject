@@ -58,7 +58,6 @@ function displayAdd()
 <!DOCTYPE html>
 <html>
     <head>
-        <name>Add to cart - Movie Center</name>
         <link rel="stylesheet" href="../css/styles.css" type="text/css">
     </head>
 <main>
@@ -90,9 +89,6 @@ function displayAdd()
         <footer>
             
         </footer>
-    </div>
-    <div id="foot">
-        <a href="#">Go to top</a>
     </div>
 </main>
 

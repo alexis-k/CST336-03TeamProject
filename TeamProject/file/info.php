@@ -65,7 +65,7 @@ function displayInfo()
     </head>
     
 <main>
-    <div class="center">
+    <div class="back">
         <header class="logo">
             Movie Center
         </header>
@@ -77,7 +77,7 @@ function displayInfo()
                 <?= "<a href='cart.php'>cart(" . count($_SESSION["cart"]) .")</a>" ?>
             </span>
         </span>
-        <body><br/>
+        <body class="lolol"><br/>
             <div class="inner">
                 <?php
                     displayInfo();
@@ -87,9 +87,6 @@ function displayInfo()
         <footer>
             
         </footer>
-    </div>
-    <div id="foot">
-        <a href="#">Go to top</a>
     </div>
 </main>
 

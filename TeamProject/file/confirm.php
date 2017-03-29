@@ -7,7 +7,6 @@ session_start();
 <!DOCTYPE html>
 <html>
     <head>
-        <name>Confirm - name Center</name>
         <link rel="stylesheet" href="../css/styles.css" type="text/css">
     </head>
     
@@ -40,9 +39,6 @@ session_start();
         <footer>
             
         </footer>
-    </div>
-    <div id="foot">
-        <a href="#">Go to top</a>
     </div>
 </main>
 
