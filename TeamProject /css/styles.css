@@ -1,0 +1,105 @@
+.movie
+{
+    background-color: #ffb566;
+    padding-top: 10px;
+    padding-left: 40px;
+    width:85%;
+}
+
+.back
+{
+    background-color: #ffdab3;
+}
+
+.movieDetails
+{
+    background-color: #e67700;
+    margin-right: 50px;
+    padding-left: 10px;
+}
+
+.logo
+{
+    text-align: center;
+    background-color: #ffcc99;
+    font-size: 50px;
+}
+.inner
+{
+    padding: 35px;
+    margin-left: auto ;
+    margin-right: auto ;
+    background-color: #ffd9b3;
+}
+#image
+{
+    width: 225px;
+    height: 300px;
+    float: left;
+    padding-bottom: 10px;
+    padding-right: 55px;
+}
+#description
+{
+    float: right;
+    width:55%;
+    height: 300px;
+}
+.pair
+{
+    width: 100%;
+    display: inline-block;
+}
+
+#foot 
+{
+    padding-left: 100px;
+    padding-bottom: 15px;
+    position: fixed;
+    bottom: 0;
+    width: 75px;
+    color: white;
+    text-decoration: none;
+}
+
+#buttonsync
+{
+    width:200px;
+    height: 50px;
+}
+
+.menu
+{
+    padding-left: 500px;
+    display: inline-block;
+    width: 25%;
+    font-size: 30px;
+
+}
+.home
+{
+    float: left;
+    color: white;
+    background-color: #ffb366;
+}
+.cart
+{
+    float: right;
+    background-color: #ffb366;
+    color: white;
+}
+
+.inline
+{
+    display: inline-block;
+}
+
+.lolol
+{
+    height:100%;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
